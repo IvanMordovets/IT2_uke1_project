@@ -34,10 +34,11 @@ class ball {
     update( deltaTime ) {
         //euler's method
         this.#position.add( Vector2.scaled( this.#velocity, deltaTime));
-        
+
     }
 
     draw() {
+        ctx.beginPath();
         ctx.fillStyle = this.#color;
         ctx.arc(this.#position.x, this.#position.y, this.#radius, 0, 2*Math.PI);
         ctx.fill();
