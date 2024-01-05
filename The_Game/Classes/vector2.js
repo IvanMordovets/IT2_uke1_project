@@ -61,6 +61,12 @@ class Vector2 {
         this.#y *= scalar;
     }
 
+    static scaled( vector, scalar ) {
+        let x = vector.x *scalar;
+        let y = vector.y *scalar;
+        return new Vector2( x, y);
+    }
+
     divide(scalar) {
         this.#x /= scalar;
         this.#y /= scalar;
