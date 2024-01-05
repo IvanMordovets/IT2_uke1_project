@@ -3,7 +3,8 @@ let ctx = canvas.getContext("2d");
 
 
 let Ball = new ball(new Vector2(200, 200), new Vector2(0.1,0.01), 10, "red");
-let PlatformObject = new Platform( new Vector2( 200, 350 ), 30, 50 );
+
+let PlatformObject = new Platform( new Vector2( 200, 270 ), 95, 20 );
 
 let numberOfRows = 10;
 let numberOfColumns = 6;
@@ -42,9 +43,14 @@ function animation(time) {
     Ball.draw();
     PlatformObject.Draw();
     Ball.update( deltaTime );
+    PlatformObject.Update()
     Ball.checkCollision();
 
     requestAnimationFrame(animation);
 }
 
 animation();
+
+
+document.onkeydown = event => PlatformObject.ProcessInput( event, true );
+document.onkeyup = event => PlatformObject.ProcessInput( event, false );
