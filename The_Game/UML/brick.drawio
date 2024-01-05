@@ -1,0 +1,22 @@
+<mxfile host="65bd71144e">
+    <diagram id="93A2UCh24gGOJQC1is_-" name="Page-1">
+        <mxGraphModel dx="483" dy="366" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="12" value="" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;strokeColor=#3a3d41;fontColor=#000000;fillColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="310" y="200" width="230" height="250" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="Brick" style="swimlane;fillColor=#FFFFFF;strokeColor=#3a3d41;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="310" y="200" width="230" height="250" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="&lt;font color=&quot;#000000&quot;&gt;- position: vektor2&lt;br&gt;&lt;br&gt;- width: int&lt;br&gt;&lt;br&gt;- height: int&lt;br&gt;&lt;br&gt;- color: str&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=#FFFFFF;fontColor=#FFFFFF;" vertex="1" parent="2">
+                    <mxGeometry y="24" width="120" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="&amp;nbsp; Brick( position, width, height, color )&lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;br&gt;&amp;nbsp; + get position(): vektor2&lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;br&gt;&amp;nbsp; + draw(): void" style="rounded=0;whiteSpace=wrap;html=1;align=left;fillColor=#FFFFFF;strokeColor=#36393d;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="310" y="350" width="230" height="100" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
