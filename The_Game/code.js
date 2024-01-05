@@ -3,6 +3,7 @@ let ctx = canvas.getContext("2d");
 
 
 let Ball = new ball(new Vector2(200, 200), new Vector2(0.1,0.01), 10, "red");
+let PlatformObject = new Platform( new Vector2( 200, 350 ), 30, 50 );
 
 
 function clearCanvas() {
@@ -27,6 +28,7 @@ function animation(time) {
 
 
     Ball.draw();
+    PlatformObject.Draw();
     Ball.update( deltaTime );
     Ball.checkCollision();
 
