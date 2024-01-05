@@ -13,6 +13,10 @@ function clearCanvas() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
+function Clamp( min, max, num ){
+    return Math.max( min, Math.min( num, max ) );
+}
+
 let lastTime;
 function animation(time) {
     if(lastTime == undefined) {

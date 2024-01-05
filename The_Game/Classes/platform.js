@@ -45,14 +45,13 @@ class Platform {
         this.#Direction = 0;
 
         for ( const [Input, KeyDown] of Object.entries( this.#InputsActivated ) ){
-            
             if ( !KeyDown ){
                 continue;
             }
             
             switch ( Input ){
                 case "A":
-                    this.#Direction = -PLATFORM_SPEED
+                    this.#Direction = -PLATFORM_SPEED;
                     break;
                 case "D":
                     this.#Direction = PLATFORM_SPEED;
@@ -66,7 +65,10 @@ class Platform {
             }
         }
 
-        this.#Position.add( new Vector2(  this.#Direction, 0 ) );
+        let xLimit = canvas.width-this.#Width/2;
+        let newX = Clamp( this.#Width/2, xLimit, this.#Position.x+this.#Direction )
+
+        this.#Position = new Vector2( newX, this.#Position.y );
     }
 
 
