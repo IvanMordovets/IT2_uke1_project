@@ -1,3 +1,6 @@
+// Constants 
+const PLATFORM_SPEED = 5;
+
 class Platform {
     #Position;
     #Direction;
@@ -5,8 +8,8 @@ class Platform {
     #InputsActivated = {
         A : false,
         D : false,
-        LEFTARROW : false,
-        RIGHTARROW : false
+        ARROWLEFT : false,
+        ARROWRIGHT : false
     };
     #Width;
     #Height;
@@ -16,7 +19,7 @@ class Platform {
         this.#Position = Position;
         this.#Width = Width;
         this.#Height = Height;
-        this.#Colour = `rgb(255, 0, 0)`
+        this.#Colour = `rgb(255, 255, 0)`
 
         this.#Direction = 0;
     }
@@ -30,34 +33,35 @@ class Platform {
     }
 
     ProcessInput( Event, KeyIsDown ){
-        if ( !(Event.Key.toUpperCase() in this.#InputsActivated )) {
-            return;    
+        if (!(Event.key.toUpperCase() in this.#InputsActivated)){
+            return;
         }
 
-        Key = Event.Key.toUpperCase();
-        this.#InputsActivated[Key] = KeyIsDown;
+        let Key = Event.key.toUpperCase();
+        this.#InputsActivated[Key] = KeyIsDown; 
     }   
 
     Update(){
         this.#Direction = 0;
 
         for ( const [Input, KeyDown] of Object.entries( this.#InputsActivated ) ){
+            
             if ( !KeyDown ){
                 continue;
             }
-
+            
             switch ( Input ){
                 case "A":
-                    this.#Direction = -1;
+                    this.#Direction = -PLATFORM_SPEED
                     break;
                 case "D":
-                    this.#Direction = 1;
+                    this.#Direction = PLATFORM_SPEED;
                     break;
-                case "LEFTARROW":
-                    this.#Direction = -1;
+                case "ARROWLEFT":
+                    this.#Direction = -PLATFORM_SPEED;
                     break;
-                case "RIGHTARROW":
-                    this.#Direction = 1;
+                case "ARROWRIGHT":
+                    this.#Direction = PLATFORM_SPEED;
                     break;
             }
         }
@@ -67,14 +71,10 @@ class Platform {
 
 
     Draw(){
-        Position = this.#Position;
-        Width = this.#Width;
-        Height = this.#Height;
-        
         ctx.fillStyle = this.#Colour;
-        ctx.FillRect( 
-            Position.x - Width/2 , Position.y - Height/2,
-            Width, Height  
+        ctx.fillRect( 
+            this.#Position.x - this.#Width/2 , this.#Position.y - this.#Height/2,
+            this.#Width, this.#Height  
         );
     }
 }
