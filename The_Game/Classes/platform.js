@@ -26,12 +26,44 @@ class Platform {
         return this.#Height;
     }
 
-    ProcessInput( Event ){
+    ProcessInput( Event, KeyIsDown ){
         if ( !(Event.Key.toUpperCase() in this.#InputsActivated )) {
             return;    
         }
 
         Key = Event.Key.toUpperCase();
-        this.#InputsActivated[Key] = true;
+        this.#InputsActivated[Key] = KeyIsDown;
     }   
+
+    Update(){
+        Direction = 0;
+
+        for ( const [Input, KeyDown] of Object.entries( this.#InputsActivated ) ){
+            if ( !KeyDown ){
+                continue;
+            }
+
+            switch ( Input ){
+                case "A":
+                    Direction -= 1;
+                    break;
+                case "D":
+                    Dircetion += 1;
+                    break;
+                case "LEFTARROW":
+                    Direction -= 1;
+                    break;
+                case "RIGHTARROW":
+                    Direction += 1;
+                    break;
+            }
+        }
+
+        this.#Position.add( new Vector2( Direction, 0 ) );
+    }
+
+
+    Draw(){
+    
+    }
 }
