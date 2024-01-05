@@ -12,8 +12,8 @@ class Platform {
     #Height;
 
 
-    constructor( Width, Height ){
-        this.#Position = new Vector2( 200, 200 );
+    constructor( Position, Width, Height ){
+        this.#Position = Position;
         this.#Width = Width;
         this.#Height = Height;
         this.#Colour = `rgb(255, 0, 0)`
@@ -71,8 +71,8 @@ class Platform {
         Width = this.#Width;
         Height = this.#Height;
         
-        context.fillStyle = this.#Colour;
-        context.FillRect( 
+        ctx.fillStyle = this.#Colour;
+        ctx.FillRect( 
             Position.x - Width/2 , Position.y - Height/2,
             Width, Height  
         );
