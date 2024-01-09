@@ -3,8 +3,7 @@ let ctx = canvas.getContext("2d");
 
 
 let Ball = new ball(new Vector2(200, 200), new Vector2(0.1,-0.1), 10, "red");
-
-let PlatformObject = new Platform( new Vector2( 200, 270 ), 95, 20 );
+let PlatformObject = new Platform( new Vector2( 200, 270 ), 95, 15 );
 
 let numberOfRows = 5;
 let numberOfColumns = 5;
@@ -18,7 +17,6 @@ for (let c = 0; c < numberOfColumns; c++) {
         let brick = new Brick(new Vector2(brickWidth*r, 20*c), brickWidth, 20, 'rgb(' + Math.random()*255 + ", 100, 100)");
         brickArray.push(brick);
     }
-
 }
 
 console.log(brickArray);

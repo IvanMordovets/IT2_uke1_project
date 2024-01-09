@@ -59,7 +59,7 @@ class ball {
     }
 
     update( deltaTime ) {
-        //euler's method
+        //euler's metho
         this.#position.add( Vector2.scaled( this.#velocity, deltaTime));
 
     }
