@@ -20,7 +20,7 @@ class ball {
         return this.#velocity;
     }
 
-    checkCollision( brickArray ) {
+    checkCollision(  ) {
 
         //wall collision
         if(this.#position.x - this.#radius < 0) {
@@ -48,15 +48,33 @@ class ball {
 
 
         
-        brickArray.forEach(brick => {
-            if(this.#position.x+ this.#radius > brick.position.x &&
-               this.#position.x < brick.position.x + brick.width &&
-               this.#position.y + this.#radius > brick.position.y &&
-               this.#position.y < brick.position.y + brick.height) {
-                this.#velocity.flipY();
-               }
-        });
     }
+
+    brickCollision(brickArray, deltaTime) {
+        let brickAmount = brickArray.lenght;
+        for(let i = 0; i<brickAmount; i ++) 
+        {
+            if(this.rectangleCollision( brickArray[i], deltaTime )){
+                
+            }
+        }
+    }
+
+    rectangleCollision( rectangle, deltaTime) {
+        let nextPosition = this.#position.add(Vector2.scaled( this.#velocity, deltaTime ));
+        if (
+            nextPosition.x + this.#radius > rectangle.position.x &&
+            nextPosition.x - this.#radius < rectangle.position.x + rectangle.width &&
+            nextPosition.y + this.#radius > rectangle.position.y &&
+            nextPosition.y - this.#radius < rectangle.position.y + rectangle.height
+        ) {
+                
+            return true;
+        }
+        return false;
+    }
+
+
 
     update( deltaTime ) {
         //euler's metho
