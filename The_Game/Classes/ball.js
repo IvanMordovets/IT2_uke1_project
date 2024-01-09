@@ -52,8 +52,8 @@ class ball {
 
     brickCollision(brickArray, deltaTime) {
         let brickAmount = brickArray.lenght;
-        for(let i = 0; i<brickAmount; i ++) 
-        {
+        // Branches innit
+        for(let i = 0; i<brickAmount; i ++) {
             if(this.rectangleCollision( brickArray[i], deltaTime )){
 
             }
