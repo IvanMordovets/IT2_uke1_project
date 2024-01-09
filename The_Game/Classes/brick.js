@@ -16,6 +16,14 @@ class Brick{
         return this.#position;
     }
 
+    get width() {
+        return this.#width;
+    }
+
+    get height() {
+        return this.#height;
+    }
+
     draw() {
         ctx.beginPath();
         ctx.fillStyle = this.#color;
