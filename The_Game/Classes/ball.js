@@ -54,7 +54,6 @@ class ball {
         let brickAmount = brickArray.lenght;
         for(let i = 0; i<brickAmount; i ++) 
         {
-            Iavn branch test
             if(this.rectangleCollision( brickArray[i], deltaTime )){
 
             }
