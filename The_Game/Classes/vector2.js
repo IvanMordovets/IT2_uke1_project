@@ -3,7 +3,7 @@ class Vector2 {
     #x;
     #y;
 
-    // Construct
+    // Yep
     constructor(x, y) {
         this.#x = x;
         this.#y = y;
