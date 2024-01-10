@@ -15,7 +15,7 @@ class Vector2 {
         return new Vector2(x, y);
     }
 
-    //penis og kuk vil Ivan ha
+
 
     static between(a, b) {
         let x = b.x - a.x;
