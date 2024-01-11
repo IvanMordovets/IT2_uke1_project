@@ -72,7 +72,9 @@ class ball {
                 }
                 
 
-                if(this.#position.y + this.#radius > brick.position.y || this.#position.y - this.#radius < brick.position.y + brick.height) {
+                if(((this.#position.y + this.#radius < brick.position.y && nextPosition.y + this.#radius > brick.position.y) ||
+                (this.#position.y - this.#radius > brick.position.y + brick.height && nextPosition.y - this.#radius < brick.position.y + brick.height)) &&
+                (this.#position.x + this.#radius > brick.position.x || this.#position.x - this.#radius < brick.position.x + brick.width)) {
                     this.#velocity.flipY();
                 }
 
