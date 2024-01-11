@@ -15,8 +15,6 @@ class Vector2 {
         return new Vector2(x, y);
     }
 
-
-
     static between(a, b) {
         let x = b.x - a.x;
         let y = b.y - a.y;
