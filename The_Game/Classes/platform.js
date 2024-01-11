@@ -24,11 +24,23 @@ class Platform {
         this.#Direction = 0;
     }
 
-    get Width(){
+    get midPosition() {
+        return this.#Position;
+    }
+
+    get position(){
+        let pos = this.#Position.clone();
+
+        pos.subtract({x:this.#Width/2, y:this.#Height/2});
+        return pos;
+
+    }
+
+    get width(){
         return this.#Width;
     }
 
-    get Height(){
+    get height(){
         return this.#Height;
     }
 

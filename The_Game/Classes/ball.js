@@ -51,26 +51,51 @@ class ball {
     }
 
     brickCollision(brickArray, deltaTime) {
-        let brickAmount = brickArray.lenght;
-        // Branches innit
-        for(let i = 0; i<brickAmount; i ++) {
-            if(this.rectangleCollision( brickArray[i], deltaTime )){
+        let brickAmount = brickArray.length;
+        let nextPosition = this.#position.clone();
+        nextPosition.add(Vector2.scaled( this.#velocity, deltaTime ));
 
+
+
+        // Branches innit
+
+        for(let i = 0; i<brickAmount; i ++) {
+            let brick = brickArray[i];
+
+            if(this.rectangleCollision( brick, nextPosition.x, nextPosition.y )){
+                console.log(brick);
+                
+                if(((this.#position.x + this.#radius < brick.position.x && nextPosition.x + this.#radius > brick.position.x) ||
+                   (this.#position.x - this.#radius > brick.position.x + brick.width && nextPosition.x - this.#radius < brick.position.x + brick.width)) && (this.#position.y + this.#radius > brick.position.y || this.#position.y - this.#radius < brick.position.y + brick.height)) {
+                    this.#velocity.flipX();
+                }
+                
+
+                if(this.#position.y + this.#radius > brick.position.y || this.#position.y - this.#radius < brick.position.y + brick.height) {
+                    this.#velocity.flipY();
+                }
+
+                brickArray.splice(i, 1);
+                console.log("collision");
+                return brickArray;
             }
         }
+        return brickArray;
     }
 
-    rectangleCollision( rectangle, deltaTime) {
-        let nextPosition = this.#position.add(Vector2.scaled( this.#velocity, deltaTime ));
+    rectangleCollision( rectangle, x, y) {
+
         if (
-            nextPosition.x + this.#radius > rectangle.position.x &&
-            nextPosition.x - this.#radius < rectangle.position.x + rectangle.width &&
-            nextPosition.y + this.#radius > rectangle.position.y &&
-            nextPosition.y - this.#radius < rectangle.position.y + rectangle.height
+            x + this.#radius > rectangle.position.x &&
+            x - this.#radius < rectangle.position.x + rectangle.width &&
+            y + this.#radius > rectangle.position.y &&
+            y - this.#radius < rectangle.position.y + rectangle.height
         ) {
                 
+
             return true;
         }
+
         return false;
     }
 

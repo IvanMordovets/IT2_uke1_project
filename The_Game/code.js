@@ -2,8 +2,8 @@ let canvas = document.getElementById("canvasBreakOut");
 let ctx = canvas.getContext("2d");
 
 
-let Ball = new ball(new Vector2(200, 200), new Vector2(0.1,-0.1), 10, "red");
-let PlatformObject = new Platform( new Vector2( 200, 270 ), 95, 15 );
+let Ball = new ball(new Vector2(200, 200), new Vector2(0.3,-0.3), 10, "red");
+let PlatformObject = new Platform( new Vector2( 200, 270 ), 95, 50 );
 
 let numberOfRows = 5;
 let numberOfColumns = 5;
@@ -53,8 +53,8 @@ function animation(time) {
     PlatformObject.Draw();
     Ball.update( deltaTime );
     Ball.checkCollision();
-    brickArray = Ball.brickCollision(brickArray);
-    Ball.brickCollision(PlatformObject);
+    Ball.brickCollision([PlatformObject], deltaTime);
+    brickArray = Ball.brickCollision( brickArray, deltaTime);
     PlatformObject.Update()
 
     requestAnimationFrame(animation);
